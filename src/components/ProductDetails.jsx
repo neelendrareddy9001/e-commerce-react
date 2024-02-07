@@ -33,7 +33,10 @@ const ProductDetails = () => {
           <button className="btn btn-warning fw-bold">Add To Cart</button>
         </div>
       </div>
-      <Product items={relatedProduct} />
+      <div className="contain">
+        <h1 className="text-center">Related Products</h1>
+        <Product items={relatedProduct} />
+      </div>
     </>
   );
 };

@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { items } from "./Data";
 
-const Navbar = () => {
+const Navbar = ({ setData }) => {
+  const filterByCategory = (category) => {
+    const element = items.filter((product) => product.category === category);
+    // console.log(element);
+    setData(element);
+  };
   return (
-    <header>
+    <header className="sticky-top">
       <div className="nav-bar">
         <div className="brand">
           <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
@@ -22,10 +28,18 @@ const Navbar = () => {
       </div>
       <div className="nav-bar-wrapper">
         <div className="items">Filter by{"->"}</div>
-        <div className="items">No Filter</div>
-        <div className="items">Mobiles</div>
-        <div className="items">Laptops</div>
-        <div className="items">Tablets</div>
+        <div className="items" onClick={() => setData(items)}>
+          No Filter
+        </div>
+        <div className="items" onClick={() => filterByCategory("mobiles")}>
+          Mobiles
+        </div>
+        <div className="items" onClick={() => filterByCategory("laptops")}>
+          Laptops
+        </div>
+        <div className="items" onClick={() => filterByCategory("tablets")}>
+          Tablets
+        </div>
         <div className="items">{">="}29999</div>
         <div className="items">{">="}49999</div>
         <div className="items">{">="}69999</div>
