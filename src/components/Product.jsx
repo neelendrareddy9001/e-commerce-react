@@ -2,7 +2,19 @@ import React from "react";
 // import { items } from "./Data";
 import { Link } from "react-router-dom";
 
-const Product = ({ items }) => {
+const Product = ({ items, cart, setCart }) => {
+  const addToCart = ({ id, price, title, description, imgSrc }) => {
+    const obj = {
+      id,
+      price,
+      title,
+      description,
+      imgSrc,
+    };
+    setCart([...cart, obj]);
+    console.log("Cart Element", cart);
+  };
+
   return (
     <div className="container my-5">
       <div className="row">
@@ -32,7 +44,18 @@ const Product = ({ items }) => {
                   <div className="card-body ">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">{product.description}</p>
-                    <button className="btn btn-primary mx-3">
+                    <button
+                      className="btn btn-primary mx-3"
+                      onClick={() =>
+                        addToCart(
+                          product.id,
+                          product.price,
+                          product.title,
+                          product.description,
+                          product.imgSrc
+                        )
+                      }
+                    >
                       {product.price}
                       {""} ₹
                     </button>
