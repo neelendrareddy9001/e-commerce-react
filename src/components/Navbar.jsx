@@ -38,7 +38,12 @@ const Navbar = ({ setData }) => {
         </form>
         <div className="cart">
           <Link to={"/cart"} style={{ textDecoration: "none", color: "white" }}>
-            Cart
+            <button type="button" className="btn btn-primary position-relative">
+              <span className="positon-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+
+                <span className="visually-hidden"></span>
+              </span>
+            </button>
           </Link>
         </div>
       </div>

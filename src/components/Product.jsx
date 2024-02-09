@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Product = ({ items, cart, setCart }) => {
-  const addToCart = ({ id, price, title, description, imgSrc }) => {
+  const addToCart = (id, price, title, description, imgSrc) => {
     const obj = {
       id,
       price,
@@ -73,7 +73,20 @@ const Product = ({ items, cart, setCart }) => {
                         {product.price}
                         {""} ₹
                       </button>
-                      <button className="btn btn-warning">Add To Cart</button>
+                      <button
+                        className="btn btn-warning"
+                        onClick={() =>
+                          addToCart(
+                            product.id,
+                            product.price,
+                            product.title,
+                            product.description,
+                            product.imgSrc
+                          )
+                        }
+                      >
+                        Add To Cart
+                      </button>
                     </div>
                   </div>
                 </div>
