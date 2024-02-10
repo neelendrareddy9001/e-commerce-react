@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { items } from "./Data";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const Navbar = ({ setData }) => {
   const [searchTerm, setSearchTerm] = useState();
@@ -37,9 +38,16 @@ const Navbar = ({ setData }) => {
           />
         </form>
         <div className="cart">
-          <Link to={"/cart"} style={{ textDecoration: "none", color: "white" }}>
-            <button type="button" className="btn btn-primary position-relative">
-              <span className="positon-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <Link
+            to={"/cart"}
+            style={{ textDecoration: "none", color: "white", maxWidth: "24px" }}
+          >
+            <button
+              type="button"
+              className="btn btn-primary position-relative text-center"
+            >
+              <BsFillCartCheckFill size={30} />
+              <span className="positon-absolute top-0  translate-middle badge rounded-pill bg-danger">
                 99+
                 <span className="visually-hidden"></span>
               </span>

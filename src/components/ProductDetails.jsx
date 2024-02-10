@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { items } from "./Data";
 import Product from "./Product";
 
-const ProductDetails = () => {
+const ProductDetails = ({ cart, setCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
@@ -35,7 +35,7 @@ const ProductDetails = () => {
       </div>
       <div className="contain">
         <h1 className="text-center">Related Products</h1>
-        <Product items={relatedProduct} />
+        <Product cart={cart} setCart={setCart} items={relatedProduct} />
       </div>
     </>
   );
