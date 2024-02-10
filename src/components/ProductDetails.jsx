@@ -30,7 +30,20 @@ const ProductDetails = ({ cart, setCart }) => {
           <button className="btn btn-primary mx-4 p-2 px-4 fw-bold">
             {product.price} {""} ₹{" "}
           </button>
-          <button className="btn btn-warning fw-bold">Add To Cart</button>
+          <button
+            onClick={() =>
+              addToCart(
+                product.id,
+                product.price,
+                product.title,
+                product.description,
+                product.imgSrc
+              )
+            }
+            className="btn btn-warning fw-bold"
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
       <div className="contain">
